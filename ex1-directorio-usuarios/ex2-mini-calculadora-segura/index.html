@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculadora con Historial</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    input, select, button { margin: 5px 0; padding: 5px; }
+    #resultado { margin-top: 10px; font-weight: bold; }
+    ul { margin-top: 10px; padding-left: 20px; }
+  </style>
+</head>
+<body>
+  <h1>Calculadora</h1>
+  <form id="formCalc">
+    <input type="number" id="num1" placeholder="Número 1" required>
+    <input type="number" id="num2" placeholder="Número 2" required>
+    <select id="operacion">
+      <option value="+">Sumar (+)</option>
+      <option value="-">Restar (−)</option>
+      <option value="*">Multiplicar (×)</option>
+      <option value="/">Dividir (÷)</option>
+    </select>
+    <button type="submit">Calcular</button>
+  </form>
+
+  <div id="resultado"></div>
+  <h3>Historial</h3>
+  <ul id="historial"></ul>
+
+  <script>
+    let historial = [];
+
+    // Función para operar
+    const calcular = ({ n1, n2, op }) => {
+      switch (op) {
+        case "+": return n1 + n2;
+        case "-": return n1 - n2;
+        case "*": return n1 * n2;
+        case "/": return n2 !== 0 ? n1 / n2 : null;
+        default: return null;
+      }
+    };
+
+    // Manejar el formulario
+    $("#formCalc").on("submit", (e) => {
+      e.preventDefault();
+
+      // Obtener valores y validarlos
+      const n1 = parseFloat($("#num1").val());
+      const n2 = parseFloat($("#num2").val());
+      const op = $("#operacion").val();
+
+      console.log(`Operación: ${n1} ${op} ${n2}`);
+
+      if (isNaN(n1) || isNaN(n2)) {
+        $("#resultado").text("Error: Ingresa dos números válidos.");
+        console.error("Error: Números inválidos.");
+        return;
+      }
+
+      if (op === "/" && n2 === 0) {
+        $("#resultado").text("Error: División por cero.");
+        console.error("Error: División por cero.");
+        return;
+      }
+
+      // Usar destructuring para pasar datos a la función
+      const resultado = calcular({ n1, n2, op });
+
+      $("#resultado").text(`Resultado: ${resultado}`);
+      console.log(`Resultado: ${resultado}`);
+
+      // Agregar al historial
+      const operacionStr = `${n1} ${op} ${n2} = ${resultado}`;
+      historial.push(operacionStr);
+
+      // Mostrar historial
+      $("#historial").empty();
+      historial.forEach(item => $("#historial").append(`<li>${item}</li>`));
+
+      console.log("Historial:", historial);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Usuarios con Filtro</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    table { width: 60%; border-collapse: collapse; margin: 20px auto; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+    #filtro { display: block; margin: 20px auto; padding: 8px; width: 50%; }
+  </style>
+</head>
+<body>
+  <h1 style="text-align:center;">Lista de Usuarios</h1>
+  <input type="text" id="filtro" placeholder="Filtrar por nombre...">
+  <table id="tabla">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Email</th>
+        <th>Empresa</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script>
+    const URL = "https://jsonplaceholder.typicode.com/users";
+    let usuarios = [];
+
+    // Cargar usuarios
+    const cargarUsuarios = async () => {
+      try {
+        const response = await $.getJSON(URL);
+        usuarios = response; // guardar datos originales
+
+        // Imprimir resumen
+        console.log(`Usuarios cargados: ${usuarios.length}`);
+        console.log("Primera fila:", usuarios[0]);
+
+        renderTabla(usuarios);
+      } catch (error) {
+        console.error("Error al cargar usuarios:", error);
+      }
+    };
+
+    // Renderizar tabla
+    const renderTabla = (data) => {
+      const tbody = $("#tabla tbody");
+      tbody.empty();
+      data.forEach(({ name, email, company }) => {
+        tbody.append(`<tr class="fila" data-name="${name}">
+                        <td>${name}</td>
+                        <td>${email}</td>
+                        <td>${company.name}</td>
+                      </tr>`);
+      });
+    };
+
+    // Filtro en vivo
+    $("#filtro").on("input", (e) => {
+      const termino = e.target.value.toLowerCase();
+      const filtrados = usuarios.filter(u => u.name.toLowerCase().includes(termino));
+
+      console.log(`Filtro: "${termino}", coincidencias: ${filtrados.length}`);
+      renderTabla(filtrados);
+    });
+
+    // Mostrar detalle al hacer clic
+    $(document).on("click", ".fila", (e) => {
+      const nombre = $(e.currentTarget).data("name");
+      const user = usuarios.find(u => u.name === nombre);
+
+      if (user) {
+        const { phone, address: { street, city } } = user;
+        alert(`Teléfono: ${phone}\nDirección: ${street}, ${city}`);
+        console.log("Detalle usuario:", user);
+      }
+    });
+
+    // Inicializar
+    $(document).ready(() => cargarUsuarios());
+  </script>
+</body>
+</html>
