@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EX2 - Mini Calculadora Segura</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Encabezado -->
+        <h1>EX2 - Mini Calculadora Segura</h1>
+
+        <!-- Formulario -->
+        <form id="calculatorForm" class="calculator-form">
+            <div class="input-group">
+                <label for="num1">Número:</label>
+                <input type="number" id="num1" name="num1" step="any" required>
+            </div>
+            
+            <div class="input-group">
+                <label for="operation">Operación:</label>
+                <select id="operation" name="operation" required>
+                    <option value="">Selecciona una operación</option>
+                    <option value="+">Suma (+)</option>
+                    <option value="-">Resta (-)</option>
+                    <option value="*">Multiplicación (×)</option>
+                    <option value="/">División (÷)</option>
+                </select>
+            </div>
+            
+            <div class="input-group">
+                <label for="num2">Número:</label>
+                <input type="number" id="num2" name="num2" step="any" required>
+            </div>
+            
+            <button type="submit"  class="calculate-btn">Calcular</button>
+        </form>
+        
+        <div id="result" class="result-section">
+            <h3>Resultado:</h3>
+            <div id="resultValue" class="result-value">Ingrese una operación</div>
+        </div>
+        
+        <div class="history-section">
+            <h3>Historial de Operaciones</h3>
+            <button id="clearHistory" class="clear-btn">Limpiar Historial</button>
+            <ul id="historyList" class="history-list">
+                <li class="no-history">No hay operaciones registradas</li>
+            </ul>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
