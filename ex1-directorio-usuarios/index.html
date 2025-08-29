@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>ex1-directorio-usuarios</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.0/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    <!-- ----- Contenedor principal ----- -->
+    <div class="container" style="text-align: center;">
+        <h1>ex1-directorio-usuarios</h1>
+        
+        <div class="stats" id="stats" style="display: none;">
+            <h3>Estadísticas</h3>
+            <p id="usuarios"></p>
+            <p id="usuariosFiltrados"></p>
+        </div>
+        
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="🔍 Buscar usuarios por nombre...">
+        </div>
+        
+        <div id="cargando">
+            <div class="loading">
+                <div class="spinner"></div>
+                Cargando usuarios...
+            </div>
+        </div>
+
+        <!--  Tabla de usuarios   -->
+        <div class="table-container" id="tabla" style="display: none;">
+            <table>
+                <thead>
+                    <tr>
+                        <th>👤 Nombre</th>
+                        <th>📧 Email</th>
+                        <th>🏢 Empresa</th>
+                    </tr>
+                </thead>
+                <tbody id="userTableBody">
+                </tbody>
+            </table>
+        </div>
+
+        <!--  Mensaje sin resultados   -->
+        <div id="no-results" class="no-results" style="display: none;">
+            <p>No se encontraron usuarios que coincidan con tu búsqueda</p>
+        </div>
+    </div>
+
+    <!-- ----- Modal de detalles del usuario ----- -->
+    <div id="mostrarDetalles" class="detail-modal">
+        <div class="detail-content">
+            <div class="detail-header">
+                <h2 id="detailName"></h2>
+                <div class="email" id="detailEmail"></div>
+            </div>
+            <div class="detail-info">
+                <div class="info-item">
+                    <div class="info-label">📞 Teléfono</div>
+                    <div class="info-value" id="detailPhone"></div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">🏠 Dirección</div>
+                    <div class="info-value" id="detailAddress"></div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">🏢 Empresa</div>
+                    <div class="info-value" id="detailCompany"></div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">🌐 Sitio Web</div>
+                    <div class="info-value" id="detailWebsite"></div>
+                </div>
+            </div>
+            <button class="close-btn" onclick="closeModal()">✨ Cerrar</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+
+</body>
+</html>
