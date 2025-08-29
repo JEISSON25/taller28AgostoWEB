@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>calculadora</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="app.js"></script>
+</head>
+<body>
+  <form id="calcForm">
+    <input type="number" id="num1" placeholder="numero" required>
+    <select id="operation">
+      <option value="+">+</option>
+      <option value="-">−</option>
+      <option value="*">×</option>
+      <option value="/">÷</option>
+    </select>
+    <input type="number" id="num2" placeholder="numero" required>
+    <button type="submit">Calcular</button>
+  </form>
+  <div>
+    <strong>respuesta:</strong> <span id="result"></span>
+  </div>
+  <div>
+    <strong>historial:</strong>
+    <ul id="history"></ul>
+  </div>
+</body>
+</html>
