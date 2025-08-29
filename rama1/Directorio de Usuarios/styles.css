@@ -1,0 +1,48 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f7f7f7;
+    margin: 0;
+    padding: 20px;
+}
+h1 {
+    color: #333;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    margin-top: 20px;
+}
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+tr.usuario-row:hover {
+    background: #e0e0e0;
+    cursor: pointer;
+}
+#detalleUsuario {
+    background: #fffbe7;
+    border-radius: 5px;
+    max-width: 400px;
+}
+#filtroNombre {
+    padding: 8px;
+    width: 250px;
+    margin-bottom: 10px;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+}
+button#cerrarDetalle {
+    margin-top: 10px;
+    padding: 5px 15px;
+    background: #f44336;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+button#cerrarDetalle:hover {
+    background: #c62828;
+}
