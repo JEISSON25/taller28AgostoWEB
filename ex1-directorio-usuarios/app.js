@@ -3,19 +3,16 @@ $(document).ready(() => {
     var URL = "https://jsonplaceholder.typicode.com/users/"
 
     var users = null
-
     $.ajax({
         type: "GET",
         url: URL,
         dataType: "json",
         error: (data) => {
             console.log("Hubo un error" + data);
-
         },
         success: (data) => {
             console.log(data);
             users = data
-
         },
     })
 
@@ -33,10 +30,8 @@ $(document).ready(() => {
             console.log("Usuario no encontrado");
             return
         }
-        div = document.createElement("div")
 
-        div.textContent = JSON.stringify(user)
-        document.body.appendChild(div)
+        console.log(user);
     })
 
     $("#clean").on("click", (e) => {
