@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Calculadora Segura</title>
+    <link rel="stylesheet" href="stylescss">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Mini Calculadora Segura</h1>
+    <form id="formCalc">
+        <input type="number" id="num1" placeholder="Número 1" required>
+        <select id="operacion">
+            <option value="+">+</option>
+            <option value="-">−</option>
+            <option value="*">×</option>
+            <option value="/">÷</option>
+        </select>
+        <input type="number" id="num2" placeholder="Número 2" required>
+        <button type="submit">Calcular</button>
+    </form>
+    <div id="resultado"></div>
+    <h2>Historial</h2>
+    <ul id="historial"></ul>
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+body {
+	font-family: Arial, sans-serif;
+	background: #f7f7f7;
+	margin: 0;
+	padding: 20px;
+}
+h1 {
+	color: #333;
+}
+#formCalc {
+	background: #fff;
+	padding: 20px;
+	border-radius: 8px;
+	box-shadow: 0 2px 8px #0001;
+	display: flex;
+	gap: 10px;
+	align-items: center;
+	margin-bottom: 20px;
+	max-width: 500px;
+}
+#formCalc input, #formCalc select {
+	padding: 8px;
+	border: 1px solid #bbb;
+	border-radius: 4px;
+	font-size: 1rem;
+	width: 100px;
+}
+#formCalc button {
+	padding: 8px 18px;
+	background: #1976d2;
+	color: #fff;
+	border: none;
+	border-radius: 4px;
+	font-size: 1rem;
+	cursor: pointer;
+	transition: background 0.2s;
+}
+#formCalc button:hover {
+	background: #0d47a1;
+}
+#resultado {
+	margin: 15px 0 20px 0;
+	font-size: 1.2rem;
+	min-height: 1.5em;
+}
+h2 {
+	color: #444;
+	margin-top: 30px;
+}
+#historial {
+	background: #fff;
+	border-radius: 8px;
+	box-shadow: 0 2px 8px #0001;
+	padding: 15px 20px;
+	max-width: 500px;
+	list-style: decimal inside;
+}
+#historial li {
+	margin-bottom: 6px;
+	font-size: 1rem;
+	color: #222;
+}
