@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Usuarios</title>
+
+  <!-- Cargar Axios y jQuery -->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    #detalle {
+      display: none;
+      margin-top: 20px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      background-color: #f9f9f9;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    th, td {
+      border: 1px solid #aaa;
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    input[type="text"] {
+      padding: 8px;
+      margin-bottom: 20px;
+      width: 300px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Lista de Usuarios</h1>
+
+  <!-- Filtro por nombre -->
+  <input type="text" id="filtro" placeholder="Filtrar por nombre...">
+
+  <!-- Tabla de usuarios -->
+  <table>
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Email</th>
+        <th>Empresa</th>
+      </tr>
+    </thead>
+    <tbody id="tabla-usuarios">
+      <!-- Aquí se agregarán los usuarios -->
+    </tbody>
+  </table>
+
+  <!-- Detalles del usuario -->
+  <div id="detalle">
+    <h3>Detalles del usuario:</h3>
+    <p><strong>Teléfono:</strong> <span id="telefono"></span></p>
+    <p><strong>Dirección:</strong> <span id="direccion"></span></p>
+  </div>
+
+  <script src="app.js"></script>
+
+</body>
+</html>
