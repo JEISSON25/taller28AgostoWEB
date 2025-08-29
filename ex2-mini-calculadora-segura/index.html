@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini calculadora</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+    <form id="operar" style="
+            display: flex;
+            align-items: end;
+            justify-content: center;
+            gap: 1rem;
+            ">
+        <div style="
+            display: flex;
+            flex-direction: column;
+            ">
+            <label for="n1">Número 1</label>
+            <input type="number" name="n1" id="n1">
+        </div>
+        <select name="operator" id="operator">
+            <option value="">Seleccione una opción</option>
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+        </select>
+        <div style="
+            display: flex;
+            flex-direction: column;
+            ">
+            <label for="n2">Número 2</label>
+            <input type="number" name="n2" id="n2">
+        </div>
+        <button type="submit">Operar</button>
+    </form>
+    <script src="app.js"></script>
+</body>
+
+</html>
