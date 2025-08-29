@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculadora</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <h2>Calculadora</h2>
+  
+  <form id="calcularForm">
+    <input type="number" id="num1" placeholder="Número 1">
+    <select id="operacion">
+      <option value="+">+</option>
+      <option value="-">−</option>
+      <option value="*">×</option>
+      <option value="/">÷</option>
+    </select>
+    <input type="number" id="num2" placeholder="Número 2">
+    <button type="submit">Calcular</button>
+  </form>
+  
+  <div id="resultado"></div>
+  <div id="historial"><h3>Historial</h3><ul></ul></div>
+
+  <script src="calculadora.js"></script>
+</body>
+</html>
