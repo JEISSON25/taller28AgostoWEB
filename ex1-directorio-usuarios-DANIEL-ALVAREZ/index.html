@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    <input type="text" id="search-input" placeholder="Buscar usuario por nombre">
+    <button id="search-button">Buscar</button>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody id="user-table-body">
+            
+        </tbody>
+    </table>
+</body>
+<script>
+    $(document).ready(function() {
+        $('#search-button').click(function() {
+            const query = $('#search-input').val().toLowerCase();
+            console.log("Usuario a buscar: " , query);
+            
+            $('#user-table-body tr').each(function() {
+                const name = $(this).find('td:nth-child(2)').text().toLowerCase();
+                if (name.includes(query) && query !== "") {
+                    $(this).css('background-color', 'aqua');
+                } else {
+                    $(this).css('background-color', '');
+                }
+            });
+        });
+    });
+</script>
+
+<script src="app.js"></script>
+</html>
