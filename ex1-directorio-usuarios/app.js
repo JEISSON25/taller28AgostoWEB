@@ -105,7 +105,7 @@ const mostrarDetalles = (userId) => {
     $('#detailCompany').text(user.company.name);
     $('#detailWebsite').text(user.website);
     
-    $('#detailModal').fadeIn(300);
+    $('#mostrarDetalles').fadeIn(300);
 };
 
 // ----- cerrar modal -----
@@ -141,5 +141,5 @@ $(document).ready(() => {
         if (e.key === 'Escape') {
             closeModal();
         }
-    }); // se supone que el modal deberia de funcionar pero no lo hace :(
+    });
 });
